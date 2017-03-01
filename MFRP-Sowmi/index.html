@@ -1,0 +1,58 @@
+<html>
+  <head>  
+    <title>Form Demo</title> 
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body ng-controller="AppController as ctrl" >
+      <section class="wrapper">
+      <form ng-submit="ctrl.submit()" name="myForm">
+      <p class="firstName">
+        <strong>First Name </strong>
+          <input type="text" ng-model="ctrl.user.username" name="uname" required ng-minlength="3"/>
+              <span ng-show="myForm.$dirty && myForm.uname.$error.required"></span>
+              <span ng-show="myForm.$dirty && myForm.uname.$error.minlength"></span>
+              <span ng-show="myForm.$dirty && myForm.uname.$invalid"></span><br/><br/>
+      </p>
+      <p class="lastName">
+        <strong>Last Name </strong>
+        <input type="text" ng-model="ctrl.user.username" name="lname" required ng-minlength="3"/>
+              <span ng-show="myForm.$dirty && myForm.lname.$error.required"></span>
+              <span ng-show="myForm.$dirty && myForm.lname.$error.minlength"></span>
+              <span ng-show="myForm.$dirty && myForm.lname.$invalid"></span><br/><br/>
+      </p>
+      <p class="eMail">
+        <strong>Email</strong>
+        <input type="email" ng-model="user.email" name="email" required/></p>
+          <br/>
+          <!-- <div ng-show="myForm.$submitted || myForm.uEmail.$touched"> -->
+          <span ng-show="myForm.email.$error.required"></span>
+          <span ng-show="myForm.email.$error.email"></span>
+         <!--  </div> -->
+      </p>
+             
+          <div class="phoneColumn">
+          <p class="phoneNo"><strong>Phone</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" ng-model="ctrl.user.phoneno" name="phoneno" class="box1"> - <input type="tel" ng-model="ctrl.user.phoneno" name="phoneno" required class="box2"> - <input type="tel" ng-model="ctrl.user.phoneno" name="phoneno" required class="box3"></p>
+          </div>
+          <p class="zipCode"><strong>Zip</strong><input type="tel" name="zipcode" required/></p>
+
+        <div class="termsAndConditions">  
+        <input type="checkbox" name="checkPolicy" ng-model="checkAgree" required>  I agree to the <a href="#">Terms and Conditions</a> of<br>&nbsp;&nbsp;&nbsp;&nbsp;the Cognizant User Agreement, and that</span><br><span>&nbsp;&nbsp;&nbsp;&nbsp;<strong>I am 18 years of age or older</strong></span>
+        </div>
+
+      <div class="Buttons"> 
+      <input type="submit"  value="Submit" ng-disabled="myForm.$invalid" class="Btn_Submit">
+      <input type="reset"   value="Cancel" ng-disabled="myForm.$invalid" class="Btn_Reset">
+      </div>
+      </form>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+      <script src="js/controller.js"></script>
+      <script src="app.js"></script>
+     </section> 
+   
+ 
+  </body>
+</html>
